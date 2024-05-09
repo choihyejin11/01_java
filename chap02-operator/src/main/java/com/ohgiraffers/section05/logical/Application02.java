@@ -32,7 +32,8 @@ public class Application02 {
         System.out.println("영문자 y인지 확인 : " + (ch4 == 'y' || ch4 == 'Y'));
 
         char ch5 = 'f' ;
-//    System.out.println("영문자인지 확인 : " +((ch5 >= 'A' && ch5 <= 'Z')) || (ch5 >= 'a' && ch5 <= 'z'));
+        System.out.println("영문자인지 확인 : " + ((ch5 >= 'A' && ch5 <= 'Z') || (ch5 >= 'a' && ch5 <= 'z')) );
+
 
 
 

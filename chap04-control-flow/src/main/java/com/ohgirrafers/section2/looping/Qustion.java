@@ -38,6 +38,7 @@ public class Qustion {
         //세미콜론 두개면 무한루핑
         for(;;){
             System.out.print("사이다(500) 콜라(200) 환타(800) 핫식스(1000) 박카스(1200) ");
+
             System.out.println("음료를 선택해주세요 : " );
             String choice = sc.nextLine();
 
@@ -45,6 +46,7 @@ public class Qustion {
 
             if(choice.equals("사이다")){
                 price = 500;
+
             } else if (choice.equals("콜라")) {
                 price = 200;
 

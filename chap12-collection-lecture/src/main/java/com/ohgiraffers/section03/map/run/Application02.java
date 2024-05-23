@@ -10,7 +10,12 @@ public class Application02 {
         * Properties 란?
         * HashMap 으로 구현하여 사용 용법이 거의 유사하지만 key 와 value 모두 문자열만 사용할 수 있는 자료구조이다.
         * 설정 파일의 값을 읽어서 어플리케이션에 적용할 때 사용한다.
+        *
+        * Hashtable의 하위 클래스이며, Hashtable과 유사한 기능을 제공한다.
+        * 하지만 Properties는 주로 문자열 키와 값만 다루기 때문에
+        * 일반적으로 설정파일을 읽고 쓰는데에 사용된다.
         * */
+
 
         Properties prop = new Properties();
 

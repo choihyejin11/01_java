@@ -30,27 +30,29 @@ public class Application01 {
 
 
         HashMap hmap = new HashMap();
-        // Map hmap2 = new HashMap();
+        //Map hmap2 = new HashMap();
 
-        hmap.put("one", new Date());
+        hmap.put("one","mango");
         hmap.put(12,"red apple");
         hmap.put(33, 123);
 
-        System.out.println(hmap); //{33=123, one=Thu May 23 13:46:30 KST 2024, 12=red apple}
+        System.out.println(hmap); //{33=123, one=mango, 12=red apple}
+        //요소의 저장순서를 유지하지 않기 때문에 값의 순서가 뒤섞임 (하지만 키와 값은 1:1로 매칭되어 출력됨)
 
         hmap.put(12,"yellow");
-        System.out.println(hmap);
+        System.out.println(hmap); //{33=123, one=mango, 12=yellow}
+        //키가 같아서 위의 red apple에서 값이 바뀜
 
         hmap.put(11, "yellow banana");
         hmap.put(9, "yellow banana");
-        System.out.println(hmap);
+        System.out.println(hmap); //{33=123, one=mango, 9=yellow banana, 11=yellow banana, 12=yellow}
 
-        System.out.println(hmap.get(9));
+        System.out.println(hmap.get(9)); //9키의 값만 얻고 싶다면,
 
-        hmap.remove(9);
-        System.out.println(hmap);
+        hmap.remove(9); //9키를 삭제
+        System.out.println(hmap); //{33=123, one=Thu May 23 15:14:24 KST 2024, 11=yellow banana, 12=yellow}
 
-        System.out.println(hmap.size());
+        System.out.println(hmap.size()); //size는 길이.. 4
 
 
         HashMap<String,String> hmap2 = new HashMap<>();
@@ -61,14 +63,26 @@ public class Application01 {
         hmap2.put("four","html5");
         hmap2.put("five","css3");
 
-        // iterator
+
+        // iterator : 반복문과 비슷하지만 인덱스 순서가 정해지지 않아서
+        //반복문을 못 쓸 경우에 사용한다.
+        //정의방법: Iterator<T>iter = Collection.iterator();
         Iterator<String> keyIter = hmap2.keySet().iterator();
 
+        //hasNext: 다음요소가 있는지 확인한다. 요소가 있다면 'true'를 반환하고,
+        //없다면 'false'를 반환
+        //next() : 다음 요소를 반환
         while (keyIter.hasNext()){
             String key = keyIter.next();
             String value = hmap2.get(key);
             System.out.println(key + "  = " + value);
         }
+       /* 출력
+        four  = html5
+        one  = java 8
+        two  = oracle
+        three  = jdbc
+        five  = css3*/
 
 
         // value객체들만 values() 메소드로 Collection 으로 만듦.
@@ -79,6 +93,12 @@ public class Application01 {
         while(valueIter.hasNext()){
             System.out.println(valueIter.next());
         }
+        /*출력
+        html5
+        java 8
+        oracle
+        jdbc
+        css3*/
 
 
         // 배열로 처리
@@ -86,16 +106,27 @@ public class Application01 {
         for (int i = 0; i < valueArr.length; i++) {
             System.out.println(i + " : " + valueArr[i]);
         }
+        /*출력
+        0 : html5
+        1 : java 8
+        2 : oracle
+        3 : jdbc
+        4 : css3*/
 
 
-
-        // Map의 내부클래스인 EntrySet 이용
+        // Map의 내부클래스인 entrySet() 이용
         Set<Map.Entry<String,String>> set = hmap2.entrySet();
-        // Entry : 키 객체와 값 객체를 쌍으로 묶은 것
+        // entry : 키 객체와 값 객체를 쌍으로 묶은 것
         Iterator<Map.Entry<String,String>> entryIterator = set.iterator();
         while(entryIterator.hasNext()){
             Map.Entry<String,String> entry = entryIterator.next();
             System.out.println(entry.getKey() + " = " + entry.getValue());
+            /*출력
+            four = html5
+            one = java 8
+            two = oracle
+            three = jdbc
+            five = css3*/
         }
     }
 }
